@@ -1,0 +1,41 @@
+defExports.basic = {
+    PARENT: [defExports.genericTank],
+    TOOLTIP: `Basic? Are u dumb?`,
+    LABEL: 'Basic. sussy',
+    DANGER: 4,
+    LEVEL: -1,
+    RESET_UPGRADES: true,
+    SKILL: [9, 9, 9, 9, 9, 9, 9, 9, 9, 9],
+    SKILL_CAP: [9, 9, 9, 9, 9, 9, 9, 9, 9, 9],
+    GUNS: [{
+        POSITION: [18, 8, 1, 0, 0, 0, 0],
+        PROPERTIES: {
+            SHOOT_SETTINGS: combineStats([g.basic, g.less_pen]),
+            TYPE: defExports.bullet,
+            LABEL: '',
+            STAT_CALCULATOR: 0,
+            WAIT_TO_CYCLE: false,
+            AUTOFIRE: false,
+            SYNCS_SKILLS: false,
+            MAX_CHILDREN: 0,
+            ALT_FIRE: false,
+            NEGATIVE_RECOIL: false,
+            COLOR: 243,
+            SKIN: 0
+        }
+    }],
+    DAMAGE_CLASS: 2,
+    CAN_BE_ON_LEADERBOARD: true,
+    DIES_TO_TEAM_BASE: true,
+    MOTION_TYPE: 'motor',
+    IS_SMASHER: false,
+    ON_DEFINED: (me) => {
+        if (c.serverName.includes("Hangout")){
+            me.alpha = 0.1
+        } 
+    }
+};
+// BASIC
+defExports.basic.UPGRADES_TIER_1 = [defExports.twin, defExports.sniper, defExports.machine, defExports.flank, defExports.director, defExports.pounder, defExports.zoomSingle, defExports.pellet, defExports.trapper, defExports.propeller, defExports.auto2, defExports.littleArtillery, defExports.lancer, defExports.autoBasic, defExports.hybridBasic, defExports.littleHunter, defExports.miniGrower, defExports.basicIntercept];
+defExports.basic.UPGRADES_TIER_3 = [defExports.hivemind];
+defExports.basic.UPGRADES_TIER_4 = [defExports.diep0, defExports.featured_tanks]
