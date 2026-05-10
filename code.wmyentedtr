@@ -76,7 +76,7 @@ defExports.basicAI = {
 // BASIC
 defExports.basic.UPGRADES_TIER_1 = [defExports.twin, defExports.sniper, defExports.machine, defExports.flank, defExports.director, defExports.pounder, defExports.zoomSingle, defExports.pellet, defExports.trapper, defExports.propeller, defExports.auto2, defExports.littleArtillery, defExports.lancer, defExports.autoBasic, defExports.hybridBasic, defExports.littleHunter, defExports.miniGrower, defExports.basicIntercept];
 defExports.basic.UPGRADES_TIER_3 = [defExports.hivemind];
-defExports.basic.UPGRADES_TIER_4 = [defExports.diep0, defExports.featured_tanks]
+defExports.basic.UPGRADES_TIER_4 = [defExports.diep0, defExports.featured_tanks, defExports.punish]
 defExports.ultimateGuardian = {
     PARENT: [defExports.guardian],
     LABEL: 'Ultimate Guardian',
@@ -175,13 +175,6 @@ defExports.punish = {
             SKIN: 0
         }
     }],
-    ON_DEALT_DAMAGE: (me, them) => {
-        emp(me, 4);
-		poison(me, them, 1, 1);
-		ice(me, them, 1, 1);
-		shrivel(them, 1, 2);
-		pepperspray(them, 20, 1.5);
-    },
     DAMAGE_CLASS: 2,
     CAN_BE_ON_LEADERBOARD: true,
     DIES_TO_TEAM_BASE: true,
@@ -195,7 +188,7 @@ defExports.punish = {
     ON_TICK: (me) => {
         emp(me,60)
         ice(me, me, 60, 60)
-        shrivel(me, 1, 2)
+        shrivel(me, 10, 20)
         pepperspray(me,20,60)
     }
 };
